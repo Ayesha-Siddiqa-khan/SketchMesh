@@ -247,6 +247,9 @@ resource "aws_iam_role" "github_actions_oidc" {
           StringEquals = {
             "token.actions.githubusercontent.com:aud" = var.github_oidc_audience
           }
+          StringLike = {
+            "token.actions.githubusercontent.com:sub" = var.github_repository != "" ? "repo:${var.github_repository}:*" : "repo:Ayesha-Siddiqa-khan/SketchMesh:*"
+          }
         }
       }
     ]
