@@ -30,14 +30,14 @@ interface CanvasEditorProps {
 }
 
 const COLORS = [
-  "#f8fafc", // White
-  "#38bdf8", // Sky
-  "#818cf8", // Indigo
-  "#a855f7", // Purple
-  "#ec4899", // Pink
-  "#f43f5e", // Rose
-  "#eab308", // Yellow
-  "#22c55e", // Green
+  "#f1f5f9", // Platinum Crisp
+  "#38bdf8", // Electric Cyan
+  "#818cf8", // Iris Blue
+  "#c084fc", // Lavender Violet
+  "#f472b6", // Sunset Orchid
+  "#fb7185", // Coral Glow
+  "#fde047", // Radiant Gold
+  "#34d399", // Seafoam Emerald
 ];
 
 export default function CanvasEditor({
