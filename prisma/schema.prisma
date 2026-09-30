@@ -1,0 +1,55 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  username  String    @unique
+  avatarUrl String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  posts     Post[]
+  comments  Comment[]
+}
+
+model Post {
+  id           String    @id @default(uuid())
+  title        String    @db.VarChar(150)
+  content      String    @db.Text
+  sketchData   Json      // Serialized canvas vector state & nodes
+  thumbnailUrl String
+  authorId     String
+  author       User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  forkedFromId String?
+  forkedFrom   Post?     @relation("PostRemixes", fields: [forkedFromId], references: [id], onDelete: SetNull)
+  remixes      Post[]    @relation("PostRemixes")
+  comments     Comment[]
+  viewsCount   Int       @default(0)
+  likesCount   Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([authorId])
+  @@index([forkedFromId])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  body      String   @db.VarChar(500)
+  coordX    Float?   // Optional X position for canvas pins
+  coordY    Float?   // Optional Y position for canvas pins
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+  @@index([authorId])
+}
