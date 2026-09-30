@@ -2,8 +2,8 @@
 # Target minimal production artifact (<150MB) with unprivileged user (UID/GID 1001)
 
 # Stage 1: Dependencies
-FROM node:20-alpine AS deps
-RUN apk add --no-cache libc6-compat
+FROM node:20-alpine3.20 AS deps
+RUN apk update && apk upgrade && apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
@@ -11,7 +11,7 @@ COPY prisma ./prisma/
 RUN npm install
 
 # Stage 2: Builder
-FROM node:20-alpine AS builder
+FROM node:20-alpine3.20 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -23,7 +23,8 @@ RUN npx prisma generate || true
 RUN npm run build
 
 # Stage 3: Runner
-FROM node:20-alpine AS runner
+FROM node:20-alpine3.20 AS runner
+RUN apk update && apk upgrade && apk add --no-cache dumb-init
 WORKDIR /app
 
 ENV NODE_ENV=production
