@@ -41,12 +41,13 @@ apt-get update -y
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
 
-# Get public IP
-PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4 || echo "98.86.179.111")
-PRIVATE_IP=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4 || echo "10.0.1.70")
+# Get IP addresses
+TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" || true)
+PUBLIC_IP="98.86.179.111"
+PRIVATE_IP="10.0.1.70"
 
-# Initialize Kubernetes Control Plane with public IP in apiserver-cert-extra-sans
-kubeadm init --apiserver-advertise-address=$PRIVATE_IP --apiserver-cert-extra-sans=$PUBLIC_IP,$PRIVATE_IP --pod-network-cidr=192.168.0.0/16
+# Initialize Kubernetes Control Plane with explicit public and private IP SANs
+kubeadm init --apiserver-advertise-address=10.0.1.70 --apiserver-cert-extra-sans=98.86.179.111,10.0.1.70,localhost,127.0.0.1 --pod-network-cidr=192.168.0.0/16
 
 # Configure kubeconfig for ubuntu user and root
 mkdir -p /home/ubuntu/.kube
