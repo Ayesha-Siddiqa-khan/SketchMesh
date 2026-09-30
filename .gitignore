@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# terraform & state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.exe
+extracted_output.txt
+clean_b64.txt
+*_init.json
+get_*.json
+check_*.json
