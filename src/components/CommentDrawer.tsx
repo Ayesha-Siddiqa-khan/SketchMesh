@@ -129,22 +129,22 @@ export default function CommentDrawer({
                 onClick={() => onSelectComment(comment)}
                 className={`p-3 rounded-xl cursor-pointer border transition text-xs ${
                   isSelected
-                    ? "bg-indigo-600/20 border-indigo-500 text-white"
-                    : "bg-slate-800/60 border-white/5 text-slate-300 hover:border-white/20"
+                    ? "bg-[#d4af37]/15 border-[#d4af37] text-[#faf7f2]"
+                    : "bg-[#121215]/80 border-[#d4af37]/10 text-[#a19f99] hover:border-[#d4af37]/30"
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="font-semibold text-indigo-300">
+                  <span className="font-semibold text-[#f5deb3]">
                     @{comment.author?.username || "creator"}
                   </span>
                   {comment.coordX !== null && comment.coordY !== null && (
-                    <span className="flex items-center gap-1 text-[10px] text-amber-400/90 font-mono">
+                    <span className="flex items-center gap-1 text-[10px] text-[#e5c07b] font-mono">
                       <MapPin className="w-3 h-3" />
                       {Math.round(comment.coordX)}, {Math.round(comment.coordY)}
                     </span>
                   )}
                 </div>
-                <p className="text-slate-200 leading-relaxed">{comment.body}</p>
+                <p className="text-[#faf7f2] leading-relaxed">{comment.body}</p>
               </div>
             );
           })
@@ -154,7 +154,7 @@ export default function CommentDrawer({
       {/* Input box */}
       <form
         onSubmit={handleSubmit}
-        className="p-3 border-t border-white/10 bg-slate-950/60"
+        className="p-3 border-t border-[#d4af37]/15 bg-[#09090b]/90"
       >
         <div className="flex items-center gap-2">
           <input
@@ -166,12 +166,12 @@ export default function CommentDrawer({
                 ? "Type comment for this coordinate..."
                 : "Leave feedback on canvas..."
             }
-            className="flex-1 px-3 py-2 text-xs rounded-xl bg-slate-800/80 border border-white/10 text-white focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="flex-1 px-3 py-2 text-xs rounded-xl bg-[#141418] border border-[#d4af37]/20 text-[#faf7f2] focus:outline-none focus:ring-1 focus:ring-[#d4af37]"
           />
           <button
             type="submit"
             disabled={isSubmitting || !commentText.trim()}
-            className="p-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white transition shadow-lg shadow-indigo-600/30"
+            className="p-2 rounded-xl bg-[#d4af37] hover:bg-[#e5c07b] disabled:opacity-50 text-[#0c0b0a] font-bold transition shadow-lg shadow-[#d4af37]/20"
           >
             <Send className="w-3.5 h-3.5" />
           </button>

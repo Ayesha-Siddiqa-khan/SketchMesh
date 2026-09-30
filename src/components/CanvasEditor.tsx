@@ -30,14 +30,14 @@ interface CanvasEditorProps {
 }
 
 const COLORS = [
-  "#f1f5f9", // Platinum Crisp
-  "#38bdf8", // Electric Cyan
-  "#818cf8", // Iris Blue
-  "#c084fc", // Lavender Violet
-  "#f472b6", // Sunset Orchid
-  "#fb7185", // Coral Glow
-  "#fde047", // Radiant Gold
-  "#34d399", // Seafoam Emerald
+  "#faf7f2", // Warm Alabaster
+  "#f5deb3", // Champagne Cream
+  "#e5c07b", // Mellow Gold
+  "#d4af37", // Polished Gold
+  "#8a7350", // Antique Bronze
+  "#e06c75", // Terracotta Coral
+  "#98c379", // Sage Olive
+  "#61afef", // Celestial Cobalt
 ];
 
 export default function CanvasEditor({
@@ -55,7 +55,7 @@ export default function CanvasEditor({
 
   const [elements, setElements] = useState<CanvasElement[]>(initialElements);
   const [activeTool, setActiveTool] = useState<ToolType>("select");
-  const [strokeColor, setStrokeColor] = useState<string>("#38bdf8");
+  const [strokeColor, setStrokeColor] = useState<string>("#d4af37");
   const [strokeWidth, setStrokeWidth] = useState<number>(3);
 
   // Viewport / Camera transforms

@@ -227,9 +227,9 @@ export default function PostDetailPage({
           <button
             onClick={handleFork}
             disabled={forking}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-fuchsia-600 to-indigo-600 hover:from-fuchsia-500 hover:to-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition disabled:opacity-50"
+            className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#d4af37] via-[#e5c07b] to-[#aa8022] hover:opacity-95 text-[#0c0b0a] font-bold text-xs shadow-lg shadow-[#d4af37]/20 transition disabled:opacity-50"
           >
-            <GitFork className="w-3.5 h-3.5" />
+            <GitFork className="w-3.5 h-3.5 text-[#0c0b0a]" />
             {forking ? "Forking..." : "Remix Board"}
           </button>
         </div>

@@ -1,49 +1,53 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg-space: #07090e;
-  --bg-deep: #0b0f19;
-  --bg-surface: #101626;
-  --bg-card: rgba(16, 23, 40, 0.72);
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-bright: rgba(168, 85, 247, 0.28);
-  
-  /* Curated luxury cyberpunk/editorial palettes */
-  --electric-violet: #8b5cf6;
-  --aurora-cyan: #06b6d4;
-  --neon-emerald: #10b981;
-  --sunset-amber: #f59e0b;
-  --hot-crimson: #f43f5e;
+  --bg-obsidian: #09090b;
+  --bg-surface: #121215;
+  --bg-card: rgba(18, 18, 22, 0.85);
+  --gold-primary: #d4af37;
+  --gold-light: #f5deb3;
+  --gold-champagne: #e5c07b;
+  --gold-subtle: rgba(212, 175, 55, 0.15);
+  --bronze-border: rgba(212, 175, 55, 0.22);
+  --text-cream: #faf7f2;
+  --text-muted: #a19f99;
 }
 
 body {
-  background: radial-gradient(circle at 50% 0%, #13192f 0%, #080b14 60%, #04060a 100%);
-  color: #f1f5f9;
+  background: radial-gradient(circle at 50% -10%, #1a1612 0%, #0c0b0a 50%, #060607 100%);
+  color: var(--text-cream);
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* Luxury iridescent glass panels */
-.iridescent-glass {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%), rgba(12, 17, 30, 0.75);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/* Obsidian & Gold Luxury Glass Panels */
+.gold-panel {
+  background: linear-gradient(135deg, rgba(229, 192, 123, 0.05) 0%, rgba(18, 18, 22, 0.85) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(229, 192, 123, 0.18);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(229, 192, 123, 0.15);
 }
 
-.iridescent-glass:hover {
-  border-color: rgba(139, 92, 246, 0.35);
-  box-shadow: 0 25px 60px rgba(139, 92, 246, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+.gold-panel:hover {
+  border-color: rgba(229, 192, 123, 0.4);
+  box-shadow: 0 30px 70px rgba(212, 175, 55, 0.08), inset 0 1px 0 rgba(229, 192, 123, 0.25);
 }
 
-.glass-nav {
-  background: rgba(7, 9, 14, 0.85);
+.gold-navbar {
+  background: rgba(9, 9, 11, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(229, 192, 123, 0.14);
+}
+
+/* Editorial Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff7ed 0%, #f5deb3 35%, #d4af37 70%, #aa8022 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Custom subtle scrollbars */
@@ -57,16 +61,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(229, 192, 123, 0.2);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(168, 85, 247, 0.4);
+  background: rgba(229, 192, 123, 0.45);
 }
 
-/* Subtle microdot canvas grid */
+/* Luxury microgrid */
 .canvas-grid {
-  background-size: 28px 28px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(229, 192, 123, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 192, 123, 0.05) 1px, transparent 1px);
 }

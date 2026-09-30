@@ -33,8 +33,8 @@ function StudioContent() {
       y: 100,
       width: 180,
       height: 90,
-      strokeColor: "#38bdf8",
-      fillColor: "rgba(56, 189, 248, 0.12)",
+      strokeColor: "#d4af37",
+      fillColor: "rgba(212, 175, 55, 0.12)",
       strokeWidth: 2,
     },
     {
@@ -42,7 +42,7 @@ function StudioContent() {
       type: "text",
       x: 120,
       y: 140,
-      strokeColor: "#38bdf8",
+      strokeColor: "#f5deb3",
       strokeWidth: 2,
       text: "API Gateway",
     },
@@ -53,7 +53,7 @@ function StudioContent() {
       y: 145,
       endX: 420,
       endY: 145,
-      strokeColor: "#818cf8",
+      strokeColor: "#e5c07b",
       strokeWidth: 2,
     },
     {
@@ -63,8 +63,8 @@ function StudioContent() {
       y: 100,
       width: 200,
       height: 90,
-      strokeColor: "#818cf8",
-      fillColor: "rgba(129, 140, 248, 0.12)",
+      strokeColor: "#e5c07b",
+      fillColor: "rgba(229, 192, 123, 0.12)",
       strokeWidth: 2,
     },
     {
@@ -72,7 +72,7 @@ function StudioContent() {
       type: "text",
       x: 440,
       y: 140,
-      strokeColor: "#818cf8",
+      strokeColor: "#f5deb3",
       strokeWidth: 2,
       text: "Kafka Event Stream",
     },
@@ -203,18 +203,18 @@ function StudioContent() {
           <button
             onClick={handlePublish}
             disabled={isSaving}
-            className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition disabled:opacity-50"
+            className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-[#d4af37] via-[#e5c07b] to-[#aa8022] hover:opacity-95 text-[#0c0b0a] font-bold text-xs shadow-lg shadow-[#d4af37]/20 transition disabled:opacity-50"
           >
             {saveSuccess ? (
               <>
-                <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-800" />
                 Published!
               </>
             ) : isSaving ? (
               "Publishing..."
             ) : (
               <>
-                <Save className="w-4 h-4" />
+                <Save className="w-4 h-4 text-[#0c0b0a]" />
                 Publish Sketch
               </>
             )}
